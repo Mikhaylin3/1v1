@@ -24,5 +24,6 @@ namespace _1v1
         public double ManaCost { get; set; } = 5;
         public double CrtChance { get; set; } = 0;
         public string Names { get; set; }
+        public double Exp { get; set; } = 0;
     }
 }

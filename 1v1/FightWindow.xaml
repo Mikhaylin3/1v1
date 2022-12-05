@@ -7,17 +7,12 @@
         mc:Ignorable="d"
         Title="FightWindow" Height="450" Width="800">
     <Grid>
-        <Image Margin="41,191,616,31" Source="/rrr.png" Stretch="Fill" IsEnabled="False">
-            <Image.OpacityMask>
-                <ImageBrush ImageSource="/rrr.png"/>
-            </Image.OpacityMask>
-        </Image>
         <ProgressBar HorizontalAlignment="Left" Height="10" Margin="25,60,0,0" VerticalAlignment="Top" Width="100" x:Name="prbHealth1"/>
-        <ProgressBar HorizontalAlignment="Left" Height="10" Margin="25,75,0,0" VerticalAlignment="Top" Width="100" x:Name="prbMana1" />
-        <ProgressBar HorizontalAlignment="Left" Height="10" Margin="671,60,0,0" VerticalAlignment="Top" Width="100" x:Name="prbHealth2"/>
+        <ProgressBar HorizontalAlignment="Left" Height="10" Margin="25,103,0,0" VerticalAlignment="Top" Width="100" x:Name="prbMana1" Background="#FFE6E6E6" Foreground="#FF0628B0" />
+        <ProgressBar HorizontalAlignment="Left" Height="10" Margin="671,60,0,0" VerticalAlignment="Top" Width="100" x:Name="prbHealth2" Foreground="#FFB0061D"/>
         <Button Content="Attack" HorizontalAlignment="Left" Height="26" Margin="428,329,0,0" VerticalAlignment="Top" Width="40" RenderTransformOrigin="0.5,0.5" x:Name="btnAttack" Click="btnAttack_Click">
         </Button>
-        <ProgressBar HorizontalAlignment="Left" Height="10" Margin="671,75,0,0" VerticalAlignment="Top" Width="100" x:Name="prbMana2"/>
+        <ProgressBar HorizontalAlignment="Left" Height="10" Margin="671,98,0,0" VerticalAlignment="Top" Width="100" x:Name="prbMana2" Foreground="#FF0610B0"/>
         <Label Content="" HorizontalAlignment="Left" Margin="25,29,0,0" VerticalAlignment="Top" Width="100" x:Name="lblName1"/>
         <Label Content="" HorizontalAlignment="Left" Margin="671,29,0,0" VerticalAlignment="Top" Width="100" x:Name="lblName2"/>
         <TextBox HorizontalAlignment="Left" Margin="331,79,0,0" TextWrapping="Wrap" Text="TextBox"  VerticalAlignment="Top" Width="118" x:Name="Health1" Height="22" RenderTransformOrigin="0.527,0.411" >
@@ -54,6 +49,13 @@
         <TextBox HorizontalAlignment="Left" Margin="493,104,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" x:Name="txtHealth2"/>
         <TextBox HorizontalAlignment="Left" Margin="494,127,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" x:Name="txtMana2" />
         <Button Content="MagicAttack" HorizontalAlignment="Left" Height="26" Margin="408,360,0,0" VerticalAlignment="Top" Width="80" RenderTransformOrigin="0.5,0.5" x:Name="btnMagicAttack" Click="btnMagicAttack_Click"/>
-
+        <Button Content="Heal" HorizontalAlignment="Left" Height="26" Margin="528,174,0,0" VerticalAlignment="Top" Width="40" RenderTransformOrigin="0.5,0.5" x:Name="btnHeal1" Click="btnHeal1_Click"/>
+        <Button Content="Heal" HorizontalAlignment="Left" Height="26" Margin="304,180,0,0" VerticalAlignment="Top" Width="40" RenderTransformOrigin="0.5,0.5" x:Name="btnHeal2" Click="btnHeal2_Click"/>
+        <Label Content="Hp:" HorizontalAlignment="Left" Margin="25,29,0,0" VerticalAlignment="Top" Width="50"/>
+        <Label Content="Hp:" HorizontalAlignment="Left" Margin="721,29,0,0" VerticalAlignment="Top" Width="50"/>
+        <Label Content="Mana:" HorizontalAlignment="Left" Margin="25,72,0,0" VerticalAlignment="Top" Width="50"/>
+        <Label Content="Mana:" HorizontalAlignment="Left" Margin="721,72,0,0" VerticalAlignment="Top" Width="50"/>
+        <Button Content="Exit" HorizontalAlignment="Left" Margin="408,234,0,0" VerticalAlignment="Top" Width="80" Height="32" x:Name="Exit" Click="Exit_Click"/>
+        
     </Grid>
 </Window>

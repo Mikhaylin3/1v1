@@ -50,6 +50,7 @@ namespace _1v1
                     Damage = user1.Damage,
                     Names = t,
                     Mana = user1.Mana,
+                    Exp = user1.Exp,
                 };
                 UserData.user1.Add(user1);
                 user2 = new User()
@@ -69,6 +70,7 @@ namespace _1v1
                     ManaCost = user2.ManaCost,
                     Damage = user2.Damage,
                     Mana = user2.Mana,
+                    Exp = user2.Exp,
                 };
                 UserData.user2.Add(user2);
                 FightWindow fightWindow = new FightWindow();               
@@ -223,76 +225,6 @@ namespace _1v1
                 txtPoint1.Text = a.ToString();
             }
         }
-
-        private void DecreaseStrenght1_Click(object sender, RoutedEventArgs e)
-        {
-            int a = Convert.ToInt32(txtPoint1.Text);
-            int s = Convert.ToInt32(txtStrenght1.Text);
-            if (s > 1)
-            {
-                a += 1;
-                s -= 1;
-                txtStrenght1.Text = s.ToString();
-                txtPoint1.Text = a.ToString();
-            }
-            else
-            {
-                txtStrenght1.Text = s.ToString();
-            }
-        }
-
-        private void DecreaseConstitution1_Click(object sender, RoutedEventArgs e)
-        {
-            int a = Convert.ToInt32(txtPoint1.Text);
-            int s = Convert.ToInt32(txtConstitution1.Text);
-            if (s > 1)
-            {
-                a += 1;
-                s -= 1;
-                txtConstitution1.Text = s.ToString();
-                txtPoint1.Text = a.ToString();
-            }
-            else
-            {
-                txtConstitution1.Text = s.ToString();
-            }
-        }
-
-        private void DecreaseIntellengence1_Click(object sender, RoutedEventArgs e)
-        {
-            int a = Convert.ToInt32(txtPoint1.Text);
-            int s = Convert.ToInt32(txtIntellengence1.Text);
-            if (s > 1)
-            {
-                a += 1;
-                s -= 1;
-                txtIntellengence1.Text = s.ToString();
-                txtPoint1.Text = a.ToString();
-
-            }
-            else
-            {
-                txtIntellengence1.Text = s.ToString();
-            }
-        }
-
-        private void DecreaseDexterity1_Click(object sender, RoutedEventArgs e)
-        {
-            int a = Convert.ToInt32(txtPoint1.Text);
-            int s = Convert.ToInt32(txtDexterity1.Text);
-            if (s > 1)
-            {
-                a += 1;
-                s -= 1;
-                txtDexterity1.Text = s.ToString();
-                txtPoint1.Text = a.ToString();
-            }
-            else
-            {
-                txtDexterity1.Text = s.ToString();
-            }
-        }
-
         private void AddStrenght2_Click(object sender, RoutedEventArgs e)
         {
             int a = Convert.ToInt32(txtPoint2.Text);
@@ -346,46 +278,6 @@ namespace _1v1
                 txtPoint2.Text = a.ToString();
             }
         }
-
-        private void DecreaseStrenght2_Click(object sender, RoutedEventArgs e)
-        {
-            int a = Convert.ToInt32(txtPoint2.Text);
-            int s = Convert.ToInt32(txtStrenght2.Text);
-            if (s > 1)
-            {
-                a += 1;
-                s -= 1;
-                txtStrenght2.Text = s.ToString();
-                txtPoint2.Text = a.ToString();
-            }
-        }
-
-        private void DecreaseConstitution2_Click(object sender, RoutedEventArgs e)
-        {
-            int a = Convert.ToInt32(txtPoint2.Text);
-            int s = Convert.ToInt32(txtConstitution2.Text);
-            if (s > 1)
-            {
-                a += 1;
-                s -= 1;
-                txtConstitution2.Text = s.ToString();
-                txtPoint2.Text = a.ToString();
-            }
-        }
-
-        private void DecreaseIntellengence2_Click(object sender, RoutedEventArgs e)
-        {
-            int a = Convert.ToInt32(txtPoint2.Text);
-            int s = Convert.ToInt32(txtIntellengence2.Text);
-            if (s > 1)
-            {
-                a += 1;
-                s -= 1;
-                txtIntellengence2.Text = s.ToString();
-                txtPoint2.Text = a.ToString();
-            }
-
-        }
         private void AddLuck2_Click(object sender, RoutedEventArgs e)
         {
             int a = Convert.ToInt32(txtPoint2.Text);
@@ -399,32 +291,7 @@ namespace _1v1
             }
         }
 
-        private void DecreaseLuck2_Click(object sender, RoutedEventArgs e)
-        {
-            int a = Convert.ToInt32(txtPoint2.Text);
-            int s = Convert.ToInt32(txtLuck2.Text);
-            if (s > 1)
-            {
-                a += 1;
-                s -= 1;
-                txtLuck2.Text = s.ToString();
-                txtPoint2.Text = a.ToString();
-            }
-        }
-        private void DecreaseDexterity2_Click(object sender, RoutedEventArgs e)
-        {
-            int a = Convert.ToInt32(txtPoint2.Text);
-            int s = Convert.ToInt32(txtDexterity2.Text);
-            if (s > 1)
-            {
-                a += 1;
-                s -= 1;
-                txtDexterity2.Text = s.ToString();
-                txtPoint2.Text = a.ToString();
-            }
-
-        }
-
+ 
         private void AddLuck1_Click(object sender, RoutedEventArgs e)
         {
             int a = Convert.ToInt32(txtPoint1.Text);
@@ -433,19 +300,6 @@ namespace _1v1
                 a -= 1;
                 int s = Convert.ToInt32(txtLuck1.Text);
                 s += 1;
-                txtLuck1.Text = s.ToString();
-                txtPoint1.Text = a.ToString();
-            }
-        }
-
-        private void DecreaseLuck1_Click(object sender, RoutedEventArgs e)
-        {
-            int a = Convert.ToInt32(txtPoint1.Text);
-            int s = Convert.ToInt32(txtLuck1.Text);
-            if (s > 1)
-            {
-                a += 1;
-                s -= 1;
                 txtLuck1.Text = s.ToString();
                 txtPoint1.Text = a.ToString();
             }

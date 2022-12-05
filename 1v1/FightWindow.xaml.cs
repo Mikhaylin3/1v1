@@ -45,6 +45,7 @@ namespace _1v1
                 user2.CrtChance = b.CrtChance;
                 user2.Damage = b.Damage;
                 user2.pDamage = b.pDamage;
+                user2.Exp= b.Exp;
                 txtMana2.Text = user2.Mana.ToString();
                 txtHealth2.Text = user2.Health.ToString();
                 prbHealth2.Maximum = user2.Health;
@@ -70,6 +71,7 @@ namespace _1v1
                 user1.CrtChance = t.CrtChance;
                 user1.Damage = t.Damage;
                 user1.pDamage = t.pDamage;
+                user1.Exp = t.Exp;
                 Health1.Text = user1.Health.ToString();
                 txtMana1.Text = user1.Mana.ToString();
                 prbHealth1.Maximum = user1.Health;
@@ -77,6 +79,12 @@ namespace _1v1
                 prbMana1.Maximum = user1.Mana;
                 prbMana1.Value = user1.Mana;
             }
+                btnHeal2.Visibility= Visibility.Hidden;
+                Exit.Visibility = Visibility.Hidden;
+                Body1.Visibility = Visibility.Hidden;
+                Head1.Visibility = Visibility.Hidden;
+                Legs1.Visibility = Visibility.Hidden;
+                Arms1.Visibility = Visibility.Hidden;
         }
         double exp1;
         double exp2;
@@ -103,22 +111,30 @@ namespace _1v1
             double cr2 = rnd.Next(0, 10001);
             user2.CrtChance = cR2 / 100;
             //1 player
-            if (YouHead2.IsChecked == true || YouBody2.IsChecked == true || YouArms2.IsChecked == true || YouLegs2.IsChecked == true)
+            if (YouHead2.IsChecked == true || YouBody2.IsChecked == true || YouArms2.IsChecked == true || YouLegs2.IsChecked == true )
             {
-                if (Def2.Text == "Head" || Def2.Text == "Body" || Def2.Text == "Arms" || Def2.Text == "Legs")
+                if (Def2.Text == "Head" || Def2.Text == "Body" || Def2.Text == "Arms" || Def2.Text == "Legs" && Def1.Text == "Head" || Def1.Text == "Body" || Def1.Text == "Arms" || Def1.Text == "Legs")
                 {
-                    YouBody2.Visibility = Visibility.Hidden;
-                    YouHead2.Visibility = Visibility.Hidden;
-                    YouLegs2.Visibility = Visibility.Hidden;
-                    YouArms2.Visibility = Visibility.Hidden;
-
-                    Body1.Visibility = Visibility.Visible;
-                    Head1.Visibility = Visibility.Visible;
-                    Legs1.Visibility = Visibility.Visible;
-                    Arms1.Visibility = Visibility.Visible;
+                    
                     if (pD1 >= p1)
                         {
-                            if (pE2 >= e2)
+                        YouBody2.Visibility = Visibility.Hidden;
+                        YouHead2.Visibility = Visibility.Hidden;
+                        YouLegs2.Visibility = Visibility.Hidden;
+                        YouArms2.Visibility = Visibility.Hidden;
+                        btnHeal1.Visibility = Visibility.Hidden;
+
+                        Body1.Visibility = Visibility.Visible;
+                        Head1.Visibility = Visibility.Visible;
+                        Legs1.Visibility = Visibility.Visible;
+                        Arms1.Visibility = Visibility.Visible;
+                        btnHeal2.Visibility = Visibility.Visible;
+
+                        YouBody2.IsChecked = false;
+                        YouHead2.IsChecked = false;
+                        YouArms2.IsChecked = false;
+                        YouLegs2.IsChecked = false;
+                        if (pE2 >= e2)
                             {
                                 if (user1.pDamage <= user2.Evasion)
                                 {
@@ -130,23 +146,29 @@ namespace _1v1
                                     {
                                         double t = user2.Health;
                                         user2.Health -= user1.Damage * 2;
-                                        exp1 += user1.Damage;
                                         if (user2.Health <= 0)
                                         {
                                             exp1 += t;
-                                            MessageBox.Show("Умер");
+                                            lvlUP1();
+                                         MessageBox.Show("Умер");
+                                            return;
                                         }
+                                        exp1 += user1.Damage;
+                                        lvlUP1();
                                     }
                                     else
                                     {
                                         double t = user2.Health;
                                         user2.Health -= user1.Damage;
-                                        exp1 += user1.Damage;
                                         if (user2.Health <= 0)
                                         {
                                             exp1 += t;
+                                            lvlUP1();
                                             MessageBox.Show("Умер");
+                                        return;
                                         }
+                                        exp1 += user1.Damage;
+                                        lvlUP1();
                                     }
                                 }
                             }
@@ -156,70 +178,106 @@ namespace _1v1
                                 {
                                     double t = user2.Health;
                                     user2.Health -= user1.Damage * 2;
-                                    exp1 += user1.Damage;
                                     if (user2.Health <= 0)
                                     {
                                         exp1 += t;
+                                        lvlUP1();
                                         MessageBox.Show("Умер");
+                                        return;
                                     }
+                                    exp1 += user1.Damage;
+                                    lvlUP1();
                                 }
                                 else
                                 {
                                     double t = user2.Health;
                                     user2.Health -= user1.Damage;
-                                    exp1 += user1.Damage;
                                     if (user2.Health <= 0)
                                     {
                                         exp1 += t;
+                                        lvlUP1();
                                         MessageBox.Show("Умер");
+                                        return;
                                     }
+                                    exp1 += user1.Damage;
+                                    lvlUP1();
                                 }
-                            }
+                        }
                         }
                         else
                         {
-                            if (cR1 >= cr1)
+                        YouBody2.Visibility = Visibility.Hidden;
+                        YouHead2.Visibility = Visibility.Hidden;
+                        YouLegs2.Visibility = Visibility.Hidden;
+                        YouArms2.Visibility = Visibility.Hidden;
+                        btnHeal1.Visibility = Visibility.Hidden;
+
+                        Body1.Visibility = Visibility.Visible;
+                        Head1.Visibility = Visibility.Visible;
+                        Legs1.Visibility = Visibility.Visible;
+                        Arms1.Visibility = Visibility.Visible;
+                        btnHeal2.Visibility = Visibility.Visible;
+
+                        YouBody2.IsChecked = false;
+                        YouHead2.IsChecked = false;
+                        YouArms2.IsChecked = false;
+                        YouLegs2.IsChecked = false;
+                        if (cR1 >= cr1)
                             {
                                 double t = user2.Health;
-                                user2.Health -= user1.Damage * 2;
-                                exp1 += user1.Damage;
+                                user2.Health -= user1.Damage * 2;                               
                                 if (user2.Health <= 0)
                                 {
                                     exp1 += t;
+                                    lvlUP1();
                                     MessageBox.Show("Умер");
+                                return;
                                 }
+                                exp1 += user1.Damage;
+                                lvlUP1();
                             }
                             else
                             {
                                 double t = user2.Health;
-                                user2.Health -= user1.Damage;
-                                exp1 += user1.Damage;
+                                user2.Health -= user1.Damage;                                
                                 if (user2.Health <= 0)
                                 {
                                     exp1 += t;
+                                    lvlUP1();
                                     MessageBox.Show("Умер");
+                                    return;
                                 }
+                                exp1 += user1.Damage;
+                                lvlUP1();
                             }
                         }
-                    }                                 
+                    }
+                else
+                {
+                    MessageBox.Show("Выберите часть тела для защиты или для атаки");
+                }
             }
             // 2 player
-            if (Head1.IsChecked == true || Body1.IsChecked == true || Arms1.IsChecked == true || Legs1.IsChecked == true)
+            else if (Head1.IsChecked == true || Body1.IsChecked == true || Arms1.IsChecked == true || Legs1.IsChecked == true )
             {
-                if (Def1.Text == "Head" || Def1.Text == "Body" || Def1.Text == "Arms" || Def1.Text == "Legs")
+                if (Def1.Text == "Head" || Def1.Text == "Body" || Def1.Text == "Arms" || Def1.Text == "Legs" && Def2.Text == "Head" || Def2.Text == "Body" || Def2.Text == "Arms" || Def2.Text == "Legs")
                 {                    
-                    YouBody2.Visibility = Visibility.Visible;
-                    YouHead2.Visibility = Visibility.Visible;
-                    YouLegs2.Visibility = Visibility.Visible;
-                    YouArms2.Visibility = Visibility.Visible;
-
-                    Body1.Visibility = Visibility.Hidden;
-                    Head1.Visibility = Visibility.Hidden;
-                    Legs1.Visibility = Visibility.Hidden;
-                    Arms1.Visibility = Visibility.Hidden;
-
                     if (pD2 >= p2)
                     {
+                        YouBody2.Visibility = Visibility.Visible;
+                        YouHead2.Visibility = Visibility.Visible;
+                        YouLegs2.Visibility = Visibility.Visible;
+                        YouArms2.Visibility = Visibility.Visible;
+
+                        Body1.Visibility = Visibility.Hidden;
+                        Head1.Visibility = Visibility.Hidden;
+                        Legs1.Visibility = Visibility.Hidden;
+                        Arms1.Visibility = Visibility.Hidden;
+
+                        Body1.IsChecked = false;
+                        Head1.IsChecked = false;
+                        Legs1.IsChecked = false;
+                        Arms1.IsChecked = false;
                         if (pE1 >= e1)
                         {
                             if (user2.pDamage <= user1.Evasion)
@@ -231,24 +289,31 @@ namespace _1v1
                                 if (cR1 >= cr1)
                                 {
                                     double t = user1.Health;
-                                    user1.Health -= user2.Damage * 2;
-                                    exp2 += user2.Damage;
+                                    user1.Health -= user2.Damage * 2;                                   
                                     if (user1.Health <= 0)
                                     {
+                                        lvlUP2();
                                         exp2 += t;
                                         MessageBox.Show("Умер");
+                                        return;
                                     }
+                                    lvlUP2();
+                                    exp2 += user2.Damage;
                                 }
                                 else
                                 {
                                     double t = user1.Health;
                                     user1.Health -= user2.Damage;
-                                    exp2 += user2.Damage;
+                                    
                                     if (user1.Health <= 0)
                                     {
+                                        lvlUP2();
                                         exp2 += t;
                                         MessageBox.Show("Умер");
+                                        return;
                                     }
+                                    lvlUP2();
+                                    exp2 += user2.Damage;
                                 }
                             }
                         }
@@ -258,28 +323,48 @@ namespace _1v1
                             {
                                 double t = user1.Health;
                                 user1.Health -= user2.Damage * 2;
-                                exp2 += user2.Damage;
                                 if (user1.Health <= 0)
                                 {
+                                    lvlUP2();
                                     exp2 += t;
                                     MessageBox.Show("Умер");
+                                    return;
                                 }
+                                exp2 += user2.Damage;
+                                lvlUP2();
                             }
                             else
                             {
                                 double t = user1.Health;
                                 user1.Health -= user2.Damage;
-                                exp2 += user2.Damage;
                                 if (user1.Health <= 0)
                                 {
+                                    lvlUP2();
                                     exp2 += t;
                                     MessageBox.Show("Умер");
+                                    return;
                                 }
+                                exp2 += user2.Damage;
+                                lvlUP2();
                             }
                         }
                     }
                     else
                     {
+                        YouBody2.Visibility = Visibility.Visible;
+                        YouHead2.Visibility = Visibility.Visible;
+                        YouLegs2.Visibility = Visibility.Visible;
+                        YouArms2.Visibility = Visibility.Visible;
+
+                        Body1.Visibility = Visibility.Hidden;
+                        Head1.Visibility = Visibility.Hidden;
+                        Legs1.Visibility = Visibility.Hidden;
+                        Arms1.Visibility = Visibility.Hidden;
+
+                        Body1.IsChecked = false;
+                        Head1.IsChecked = false;
+                        Legs1.IsChecked = false;
+                        Arms1.IsChecked = false;
                         if (cR1 >= cr1)
                         {
                             double t = user1.Health;
@@ -288,7 +373,9 @@ namespace _1v1
                             if (user1.Health <= 0)
                             {
                                 exp2 += t;
+                                lvlUP2();
                                 MessageBox.Show("Умер");
+                                return;
                             }
                         }
                         else
@@ -299,15 +386,21 @@ namespace _1v1
                             if (user1.Health <= 0)
                             {
                                 exp2 += t;
+                                lvlUP2();
                                 MessageBox.Show("Умер");
+                                return;
                             }
                         }
                     }
                 }
+                else
+                {
+                    MessageBox.Show("Выберите часть тела для защиты или для атаки");
+                }
             }
-            if (Head1.IsChecked == true || Body1.IsChecked == true || Arms1.IsChecked == true || Legs1.IsChecked == true || Head1.IsChecked ==false|| Body1.IsChecked == false || Arms1.IsChecked == false || Legs1.IsChecked == false && YouHead2.IsChecked == true || YouBody2.IsChecked == true || YouArms2.IsChecked == true || YouLegs2.IsChecked == true && Def1.Text == string.Empty && Def2.Text == string.Empty)
+            else
             {
-                MessageBox.Show("Выберите атаку или защиту");
+                MessageBox.Show("Выберите атаку ");
             }
             prbHealth1.Value = user1.Health;
             prbHealth2.Value = user2.Health;
@@ -316,6 +409,14 @@ namespace _1v1
 
 
         }
+        int lvl2 = 2;
+        int lvl3 = 3;
+        int lvl4 = 4;
+        int lvl5 = 5;
+        double r = 300;
+        double e = 800;
+        double k = 1800;
+        double p = 3000;
 
 
         private void btnMagicAttack_Click(object sender, RoutedEventArgs e)
@@ -340,23 +441,69 @@ namespace _1v1
             double cr2 = rnd.Next(0, 10001);
             user2.CrtChance = cR2 / 100;
             //1 player
-            if (YouHead2.IsChecked == true || YouBody2.IsChecked == true || YouArms2.IsChecked == true || YouLegs2.IsChecked == true)
+            if (YouHead2.IsChecked == true || YouBody2.IsChecked == true || YouArms2.IsChecked == true || YouLegs2.IsChecked == true )
             {
-                if (Def2.Text == "Head" || Def2.Text == "Body" || Def2.Text == "Arms" || Def2.Text == "Legs")
+                if (Def1.Text == "Head" || Def1.Text == "Body" || Def1.Text == "Arms" || Def1.Text == "Legs" && Def2.Text == "Head" || Def2.Text == "Body" || Def2.Text == "Arms" || Def2.Text == "Legs")
                 {
-                    if (pD1 >= p1)
+                    
+                    if(user1.Mana- user1.ManaCost > 0) 
                     {
-                        if (pE2 >= e2)
+                        YouBody2.Visibility = Visibility.Hidden;
+                        YouHead2.Visibility = Visibility.Hidden;
+                        YouLegs2.Visibility = Visibility.Hidden;
+                        YouArms2.Visibility = Visibility.Hidden;
+                        btnHeal1.Visibility = Visibility.Hidden;
+
+                        Body1.Visibility = Visibility.Visible;
+                        Head1.Visibility = Visibility.Visible;
+                        Legs1.Visibility = Visibility.Visible;
+                        Arms1.Visibility = Visibility.Visible;
+                        btnHeal2.Visibility = Visibility.Visible;
+
+                        YouBody2.IsChecked = false;
+                        YouHead2.IsChecked = false;
+                        YouArms2.IsChecked = false;
+                        YouLegs2.IsChecked = false;
+                        if (pD1 >= p1)
                         {
-                            if (user1.pDamage <= user2.Evasion)
+                            if (pE2 >= e2)
                             {
-                                MessageBox.Show("Сработоло уклонение");
+                                if (user1.pDamage <= user2.Evasion)
+                                {
+                                    MessageBox.Show("Сработоло уклонение");
+                                }
+                                else
+                                {
+                                    if (cR1 >= cr1)
+                                    {
+
+                                        double t = user2.Health;
+                                        user2.Health -= user1.MagicDamage * 2;
+                                        exp1 += user1.Damage;
+                                        if (user2.Health <= 0)
+                                        {
+                                            exp1 += t;
+                                            MessageBox.Show("Умер");
+                                        }
+                                    }
+                                    else
+                                    {
+                                        double t = user1.Health;
+                                        user2.Health -= user1.MagicDamage;
+                                        exp1 += user1.Damage;
+                                        if (user2.Health <= 0)
+                                        {
+                                            exp1 += t;
+                                            MessageBox.Show("Умер");
+                                        }
+                                    }
+                                }
                             }
                             else
                             {
                                 if (cR1 >= cr1)
                                 {
-                                    double t = user2.Health;
+                                    double t = user1.Health;
                                     user2.Health -= user1.MagicDamage * 2;
                                     exp1 += user1.Damage;
                                     if (user2.Health <= 0)
@@ -396,6 +543,7 @@ namespace _1v1
                                 double t = user1.Health;
                                 user2.Health -= user1.MagicDamage;
                                 exp1 += user1.Damage;
+                                user1.Mana -= user1.ManaCost;
                                 if (user2.Health <= 0)
                                 {
                                     exp1 += t;
@@ -406,58 +554,74 @@ namespace _1v1
                     }
                     else
                     {
-                        if (cR1 >= cr1)
-                        {
-                            double t = user1.Health;
-                            user2.Health -= user1.MagicDamage * 2;
-                            exp1 += user1.Damage;
-                            if (user2.Health <= 0)
-                            {
-                                exp1 += t;
-                                MessageBox.Show("Умер");
-                            }
-                        }
-                        else
-                        {
-                            double t = user1.Health;
-                            user2.Health -= user1.MagicDamage;
-                            exp1 += user1.Damage;
-                            if (user2.Health <= 0)
-                            {
-                                exp1 += t;
-                                MessageBox.Show("Умер");
-                            }
-                        }
+                        MessageBox.Show("Вам не хватает маны(поменяйте атаку)");
                     }
+
                 }
-
-            }
-            // 2 player
-            if (Head1.IsChecked == true || Body1.IsChecked == true || Arms1.IsChecked == true || Legs1.IsChecked == true)
-            {
-                if (Def1.Text == "Head" || Def1.Text == "Body" || Def1.Text == "Arms" || Def1.Text == "Legs")
+                else
                 {
-                    Arms1.IsChecked = false;
-                    Body1.IsChecked = false;
-                    Head1.IsChecked = false;
-                    Legs1.IsChecked = false;
+                    MessageBox.Show("Выберите часть тела для защиты или для атаки");
+                }
+            }
 
-                    YouBody2.Visibility = Visibility.Visible;
-                    YouHead2.Visibility = Visibility.Visible;
-                    YouLegs2.Visibility = Visibility.Visible;
-                    YouArms2.Visibility = Visibility.Visible;
-
-                    Body1.Visibility = Visibility.Hidden;
-                    Head1.Visibility = Visibility.Hidden;
-                    Legs1.Visibility = Visibility.Hidden;
-                    Arms1.Visibility = Visibility.Hidden;
-                    if (pD2 >= p2)
+            // 2 player
+            else if (Head1.IsChecked == true || Body1.IsChecked == true || Arms1.IsChecked == true || Legs1.IsChecked == true )
+            {
+                if (Def1.Text == "Head" || Def1.Text == "Body" || Def1.Text == "Arms" || Def1.Text == "Legs" && Def2.Text == "Head" || Def2.Text == "Body" || Def2.Text == "Arms" || Def2.Text == "Legs")
+                {
+                    if (user2.Mana - user2.ManaCost > 0)
                     {
-                        if (pE1 >= e1)
+                        YouBody2.Visibility = Visibility.Visible;
+                        YouHead2.Visibility = Visibility.Visible;
+                        YouLegs2.Visibility = Visibility.Visible;
+                        YouArms2.Visibility = Visibility.Visible;
+                        btnHeal1.Visibility = Visibility.Visible;
+
+                        Body1.Visibility = Visibility.Hidden;
+                        Head1.Visibility = Visibility.Hidden;
+                        Legs1.Visibility = Visibility.Hidden;
+                        Arms1.Visibility = Visibility.Hidden;
+                        btnHeal2.Visibility = Visibility.Hidden;
+
+                        Body1.IsChecked = false;
+                        Head1.IsChecked = false;
+                        Legs1.IsChecked = false;
+                        Arms1.IsChecked = false;
+
+                        if (pD2 >= p2)
                         {
-                            if (user2.pDamage <= user1.Evasion)
+                            if (pE1 >= e1)
                             {
-                                MessageBox.Show("Сработоло уклонение");
+                                if (user2.pDamage <= user1.Evasion)
+                                {
+                                    MessageBox.Show("Сработоло уклонение");
+                                }
+                                else
+                                {
+                                    if (cR1 >= cr1)
+                                    {
+                                        double t = user1.Health;
+                                        user1.Health -= user2.MagicDamage * 2;
+                                        exp2 += user2.Damage;
+                                        if (user1.Health <= 0)
+                                        {
+                                            exp2 += t;
+                                            Final();
+                                            MessageBox.Show("Умер");
+                                        }
+                                    }
+                                    else
+                                    {
+                                        double t = user1.Health;
+                                        user1.Health -= user2.MagicDamage;
+                                        exp2 += user2.Damage;
+                                        if (user1.Health <= 0)
+                                        {
+                                            exp2 += t;
+                                            MessageBox.Show("Умер");
+                                        }
+                                    }
+                                }
                             }
                             else
                             {
@@ -492,6 +656,7 @@ namespace _1v1
                                 double t = user1.Health;
                                 user1.Health -= user2.MagicDamage * 2;
                                 exp2 += user2.Damage;
+                                user2.Mana -= user2.ManaCost;
                                 if (user1.Health <= 0)
                                 {
                                     exp2 += t;
@@ -503,6 +668,7 @@ namespace _1v1
                                 double t = user1.Health;
                                 user1.Health -= user2.MagicDamage;
                                 exp2 += user2.Damage;
+                                user2.Mana -= user2.ManaCost;
                                 if (user1.Health <= 0)
                                 {
                                     exp2 += t;
@@ -513,39 +679,209 @@ namespace _1v1
                     }
                     else
                     {
-                        if (cR1 >= cr1)
-                        {
-                            double t = user1.Health;
-                            user1.Health -= user2.MagicDamage * 2;
-                            exp2 += user2.Damage;
-                            if (user1.Health <= 0)
-                            {
-                                exp2 += t;
-                                MessageBox.Show("Умер");
-                            }
-                        }
-                        else
-                        {
-                            double t = user1.Health;
-                            user1.Health -= user2.MagicDamage;
-                            exp2 += user2.Damage;
-                            if (user1.Health <= 0)
-                            {
-                                exp2 += t;
-                                MessageBox.Show("Умер");
-                            }
-                        }
+                        MessageBox.Show("Вам не хватает маны(поменяйте атаку)");
                     }
+                }
+                else
+                {
+                    MessageBox.Show("Выберите часть тела для защиты или для атаки");
                 }
 
             }
+            else
+            {
+                MessageBox.Show("Выберите атаку ");
+            }
             prbHealth1.Value = user1.Health;
             prbHealth2.Value = user2.Health;
-            prbMana1.Value = user1.Health;
+            prbMana1.Value = user1.Mana;
+            prbMana2.Value = user2.Mana;
+        }
+        void lvlUP1()
+        {
+            
+            if(lvl2 > user1.Lvl)
+            {
+                user1.Exp = exp2;
+                if(user1.Exp >= r) 
+                {
+                    user1.Point += 2;
+                    user1.Lvl += 1;
+                    user1.Exp = exp2;
+                    user1.Exp -= r;
+                }
+            }
+            else if (lvl3 > user1.Lvl) 
+            {
+                user1.Exp = exp2;
+                if (user1.Exp >= e)
+                {
+                    user1.Point += 3;
+                    user1.Lvl += 1;
+                    user1.Exp = exp2;
+                    user1.Exp -= e;
+                }
+            }
+            else if (lvl4 > user1.Lvl)
+            {
+                user1.Exp = exp2;
+                if (user1.Exp >= k)
+                {
+                    user1.Point += 2;
+                    user1.Lvl += 1;
+                    user1.Exp = exp2;
+                    user1.Exp -= k;
+                }
+            }
+            else if( lvl5 > user1.Lvl)
+            {
+                user1.Exp = exp2;
+                if (user1.Exp >= p)
+                {
+                    user1.Point += 5;
+                    user1.Exp = exp2;
+                }
+            }                                     
+        }
+        void lvlUP2()
+        {
+
+            if (lvl2 > user2.Lvl)
+            {
+                user2.Exp = exp2;
+                if (user2.Exp >= r)
+                {
+                    user2.Point += 2;
+                    user2.Lvl += 1;
+                    user2.Exp = exp2;
+                    user2.Exp -= r;
+                }
+            }
+            else if (lvl3 > user2.Lvl)
+            {
+                user2.Exp = exp2;
+                if (user2.Exp >= e)
+                {
+                    user2.Point += 3;
+                    user2.Lvl += 1;
+                    user2.Exp = exp2;
+                    user2.Exp -= e;
+                }
+            }
+            else if (lvl4 > user2.Lvl)
+            {
+                user2.Exp = exp2;
+                if (user2.Exp >= k)
+                {
+                    user2.Point += 2;
+                    user2.Lvl += 1;
+                    user2.Exp = exp2;
+                    user2.Exp -= k;
+                }
+            }
+            else if (lvl5 > user2.Lvl)
+            {
+                user2.Exp = exp2;
+                if (user2.Exp >= p)
+                {
+                    user2.Point += 5;
+                    user2.Exp = exp2;
+                }
+            }
+        }
+
+        private void btnHeal1_Click(object sender, RoutedEventArgs e)
+        {
+            if(user1.Mana - user1.ManaCost > 0)
+            {
+                YouBody2.Visibility = Visibility.Hidden;
+                YouHead2.Visibility = Visibility.Hidden;
+                YouLegs2.Visibility = Visibility.Hidden;
+                YouArms2.Visibility = Visibility.Hidden;
+                btnHeal1.Visibility = Visibility.Hidden;
+
+                Body1.Visibility = Visibility.Visible;
+                Head1.Visibility = Visibility.Visible;
+                Legs1.Visibility = Visibility.Visible;
+                Arms1.Visibility = Visibility.Visible;
+                btnHeal2.Visibility = Visibility.Visible;
+
+                YouBody2.IsChecked = false;
+                YouHead2.IsChecked = false;
+                YouArms2.IsChecked = false;
+                YouLegs2.IsChecked = false;
+                double l = user1.Mana;
+                double h = l % user1.ManaCost;
+                user1.Health += user1.ManaCost * h;
+                user1.Mana -= user1.ManaCost * h;
+            }
+            else
+            {
+                MessageBox.Show("Не хватает маны");
+            }
+            prbHealth1.Value = user1.Health;
+            prbHealth2.Value = user2.Health;
+            prbMana1.Value = user1.Mana;
             prbMana2.Value = user2.Mana;
         }
 
+        private void btnHeal2_Click(object sender, RoutedEventArgs e)
+        {
+            if (user2.Mana - user2.ManaCost > 0)
+            {
+                YouBody2.Visibility = Visibility.Visible;
+                YouHead2.Visibility = Visibility.Visible;
+                YouLegs2.Visibility = Visibility.Visible;
+                YouArms2.Visibility = Visibility.Visible;
+                btnHeal1.Visibility= Visibility.Visible;
 
+                Body1.Visibility = Visibility.Hidden;
+                Head1.Visibility = Visibility.Hidden;
+                Legs1.Visibility = Visibility.Hidden;
+                Arms1.Visibility = Visibility.Hidden;
+                btnHeal2.Visibility= Visibility.Hidden;
+
+                Body1.IsChecked = false;
+                Head1.IsChecked = false;
+                Legs1.IsChecked = false;
+                Arms1.IsChecked = false;
+
+                double l = user2.Mana;
+                double h = l % user2.ManaCost;
+                user2.Health += user2.ManaCost * h;
+                user2.Mana -= user2.ManaCost * h;
+            }
+            else
+            {
+                MessageBox.Show("Не хватает маны");
+            }
+            prbHealth1.Value = user1.Health;
+            prbHealth2.Value = user2.Health;
+            prbMana1.Value = user1.Mana;
+            prbMana2.Value = user2.Mana;
+        }
+
+        void Final()
+        {
+            Exit.Visibility = Visibility.Visible;
+            Body1.Visibility = Visibility.Hidden;
+            Head1.Visibility = Visibility.Hidden;
+            Legs1.Visibility = Visibility.Hidden;
+            Arms1.Visibility = Visibility.Hidden;
+            btnHeal2.Visibility = Visibility.Hidden;
+            YouBody2.Visibility = Visibility.Hidden;
+            YouHead2.Visibility = Visibility.Hidden;
+            YouLegs2.Visibility = Visibility.Hidden;
+            YouArms2.Visibility = Visibility.Hidden;
+            btnHeal1.Visibility = Visibility.Hidden;
+            btnAttack.Visibility = Visibility.Hidden;
+            btnMagicAttack.Visibility = Visibility.Hidden;
+        }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
         

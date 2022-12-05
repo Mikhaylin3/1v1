@@ -15,10 +15,6 @@
         <Button Content="+" HorizontalAlignment="Left" Margin="157,218,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.808,-1.768" Click="AddConstitutiont1_Click" Width="45" Height="28" x:Name="AddConstitutiont1"/>
         <Button Content="+" HorizontalAlignment="Left" Margin="157,172,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.808,-1.768" Click="AddIntellengence1_Click" Width="45" Height="28" x:Name="AddIntellengence1"/>
         <Button Content="+" HorizontalAlignment="Left" Margin="157,127,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.808,-1.768" Click="AddDexterityt1_Click" Width="45" Height="28" x:Name="AddDexterityt1"/>
-        <Button Content="-" HorizontalAlignment="Left" Margin="16,79,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.808,-1.768" Click="DecreaseStrenght1_Click"  Width="45" Height="28" x:Name="DecreaseStrenght1"/>
-        <Button Content="-" HorizontalAlignment="Left" Margin="16,218,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.808,-1.768" Click="DecreaseConstitution1_Click" Width="45" Height="28" x:Name="DecreaseConstitution1" />
-        <Button Content="-" HorizontalAlignment="Left" Margin="16,172,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.808,-1.768" Click="DecreaseIntellengence1_Click" Width="45" Height="28" x:Name="DecreaseIntellengence1"/>
-        <Button Content="-" HorizontalAlignment="Left" Margin="16,127,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.808,-1.768" Click="DecreaseDexterity1_Click" Width="45" Height="28" x:Name="DecreaseDexterity1"/>
         <TextBox HorizontalAlignment="Left" Margin="66,84,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="86" Name="txtStrenght1" IsReadOnly="True"/>
         <Label Content="Strenght:" HorizontalAlignment="Left" Margin="66,59,0,0" VerticalAlignment="Top" Width="68" Height="34"/>
         <TextBox HorizontalAlignment="Left" Margin="66,132,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="86" x:Name="txtDexterity1" IsReadOnly="True"/>
@@ -34,10 +30,6 @@
         <Button Content="+" HorizontalAlignment="Left" Margin="154,232,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.808,-1.768" Click="AddConstitutiont2_Click" Width="45" Height="28" x:Name="AddConstitutiont2" Grid.Column="1"/>
         <Button Content="+" HorizontalAlignment="Left" Margin="154,180,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.808,-1.768" Click="AddIntellengence2_Click" Width="45" Height="28" x:Name="AddIntellengence2" Grid.Column="1"/>
         <Button Content="+" HorizontalAlignment="Left" Margin="154,127,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.808,-1.768" Click="AddDexterityt2_Click" Width="45" Height="28" x:Name="AddDexterityt2" Grid.Column="1"/>
-        <Button Content="-" HorizontalAlignment="Left" Margin="13,79,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.808,-1.768" Click="DecreaseStrenght2_Click" Width="45" Height="28" x:Name="DecreaseStrenght2" Grid.Column="1"/>
-        <Button Content="-" HorizontalAlignment="Left" Margin="13,232,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.808,-1.768" Click="DecreaseConstitution2_Click" Width="45" Height="28" x:Name="DecreaseConstitution2" Grid.Column="1" />
-        <Button Content="-" HorizontalAlignment="Left" Margin="13,180,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.808,-1.768" Click="DecreaseIntellengence2_Click" Width="45" Height="28" x:Name="DecreaseIntellengence2" Grid.Column="1"/>
-        <Button Content="-" HorizontalAlignment="Left" Margin="13,127,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.808,-1.768" Click="DecreaseDexterity2_Click" Width="45" Height="28" x:Name="DecreaseDexterity2" Grid.Column="1"/>
         <TextBox HorizontalAlignment="Left" Margin="63,84,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="86" x:Name="txtStrenght2" IsReadOnly="True" Grid.Column="1"/>
         <Label Content="Strenght:" HorizontalAlignment="Left" Margin="63,59,0,0" VerticalAlignment="Top" Width="68" Height="34" Grid.Column="1"/>
         <TextBox HorizontalAlignment="Left" Margin="63,132,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="86" x:Name="txtDexterity2" IsReadOnly="True" Grid.Column="1"/>
@@ -47,8 +39,8 @@
         <TextBox HorizontalAlignment="Left" Margin="63,242,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="86" x:Name="txtConstitution2" IsReadOnly="True" Grid.Column="1"/>
         <Label Content="Constitution:" HorizontalAlignment="Left" Margin="63,217,0,0" VerticalAlignment="Top" Width="78" Height="25" Grid.Column="1"/>
         <TextBox HorizontalAlignment="Left" Margin="56,17,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Width="120" x:Name="txtName2" Grid.Column="1"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="346,205,0,0" VerticalAlignment="Top" RenderTransformOrigin="-4.114,0.353" Height="49" Width="108" Click="Save_click"/>
-        <Image Margin="304,12,67,258" Source="/28608-6-fight-thumb.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+        <Button Content="Button" HorizontalAlignment="Left" Margin="344,78,0,0" VerticalAlignment="Top" RenderTransformOrigin="-4.114,0.353" Height="38" Width="93" Click="Save_click"/>
+        <Image Margin="323,141,100,182" Source="/28608-6-fight-thumb.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -68,11 +60,9 @@
         <Label Content="Point:" HorizontalAlignment="Left" Margin="45,40,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.105,0.464" Grid.Column="1"/>
         <TextBox HorizontalAlignment="Left" Margin="69,276,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="86" x:Name="txtLuck1" IsReadOnly="True"  />
         <Button Content="+" HorizontalAlignment="Left" Margin="160,271,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.808,-1.768" Click="AddLuck1_Click" Width="45" Height="28" x:Name="AddLuck1"/>
-        <Button Content="-" HorizontalAlignment="Left" Margin="19,271,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.808,-1.768" Click="DecreaseLuck1_Click" Width="45" Height="28" x:Name="DecreaseLuck1" />
         <Label Content="Luck:" HorizontalAlignment="Left" Margin="69,251,0,0" VerticalAlignment="Top" x:Name="Luck1"/>
         <TextBox HorizontalAlignment="Left" Margin="63,290,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="86" x:Name="txtLuck2" IsReadOnly="True" Grid.Column="1"  />
         <Button Content="+" HorizontalAlignment="Left" Margin="154,285,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.808,-1.768" Click="AddLuck2_Click" Width="45" Height="28" x:Name="AddLuck2" Grid.Column="1"/>
-        <Button Content="-" HorizontalAlignment="Left" Margin="13,283,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.808,-1.768" Click="DecreaseLuck2_Click" Width="45" Height="28" x:Name="DecreaseLuck2" Grid.Column="1" />
         <Label Content="Luck:" HorizontalAlignment="Left" Margin="63,265,0,0" VerticalAlignment="Top" x:Name="Luck2" Grid.Column="1"/>
         <TextBox HorizontalAlignment="Left" Margin="200,17,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" x:Name="txtName12"/>
 
