@@ -22,8 +22,8 @@ namespace _1v1
     {
         public User user1 = new User();
         public User user2 = new User();
-        public List<User> userL1 = new List<User>();
-        public List<User> userL2 = new List<User>();
+        public User user3 = new User();
+        public User user4 = new User(); 
         public FightWindow()
         {
             InitializeComponent();
@@ -46,12 +46,12 @@ namespace _1v1
                 user2.Damage = b.Damage;
                 user2.pDamage = b.pDamage;
                 user2.Exp= b.Exp;
-                txtMana2.Text = user2.Mana.ToString();
-                txtHealth2.Text = user2.Health.ToString();
                 prbHealth2.Maximum = user2.Health;
                 prbHealth2.Value = user2.Health;
                 prbMana2.Maximum = user2.Mana;
                 prbMana2.Value = user2.Mana;
+                user4.Mana = b.Mana;
+                user4.Health = b.Health;
             }
             foreach (var t in UserData.user1)
             {
@@ -72,12 +72,12 @@ namespace _1v1
                 user1.Damage = t.Damage;
                 user1.pDamage = t.pDamage;
                 user1.Exp = t.Exp;
-                Health1.Text = user1.Health.ToString();
-                txtMana1.Text = user1.Mana.ToString();
                 prbHealth1.Maximum = user1.Health;
                 prbHealth1.Value = user1.Health;
                 prbMana1.Maximum = user1.Mana;
                 prbMana1.Value = user1.Mana;
+                user3.Mana = user1.Mana;
+                user3.Health= user1.Health;
             }
                 btnHeal2.Visibility= Visibility.Hidden;
                 Exit.Visibility = Visibility.Hidden;
@@ -148,13 +148,19 @@ namespace _1v1
                                         user2.Health -= user1.Damage * 2;
                                         if (user2.Health <= 0)
                                         {
+                                            user2.Health = 0;
                                             exp1 += t;
+                                            exp1 += 3 * user4.Health * user2.Lvl;
                                             lvlUP1();
-                                         MessageBox.Show("Умер");
-                                            return;
+                                            Final();
+                                            MessageBox.Show("Умер");
+                                            lstHistory.Items.Add($"{user2.Health}");
+                                        return;
                                         }
-                                        exp1 += user1.Damage;
+                                        exp1 += user1.Damage*2;
                                         lvlUP1();
+                                        lstHistory.Items.Add($"{user2.Health} - осталось, {user1.Damage} Exp- {user1.Exp}");
+
                                     }
                                     else
                                     {
@@ -162,15 +168,20 @@ namespace _1v1
                                         user2.Health -= user1.Damage;
                                         if (user2.Health <= 0)
                                         {
-                                            exp1 += t;
-                                            lvlUP1();
+                                        user2.Health = 0;
+                                        exp1 += t;
+                                        exp1 += 3 * user4.Health * user2.Lvl;
+                                        lvlUP1();
+                                            Final();
                                             MessageBox.Show("Умер");
+                                        lstHistory.Items.Add($"{user2.Health}");
                                         return;
                                         }
                                         exp1 += user1.Damage;
                                         lvlUP1();
-                                    }
+                                        lstHistory.Items.Add($"{user2.Health} - осталось, {user1.Damage} Exp- {user1.Exp}");
                                 }
+                            }
                             }
                             else
                             {
@@ -180,13 +191,18 @@ namespace _1v1
                                     user2.Health -= user1.Damage * 2;
                                     if (user2.Health <= 0)
                                     {
+                                        user2.Health = 0;
                                         exp1 += t;
+                                        exp1 += 3 * user4.Health * user2.Lvl;
                                         lvlUP1();
+                                        Final(); 
                                         MessageBox.Show("Умер");
-                                        return;
+                                    lstHistory.Items.Add($"{user2.Health}");
+                                    return;
                                     }
-                                    exp1 += user1.Damage;
+                                    exp1 += user1.Damage * 2;
                                     lvlUP1();
+                                    lstHistory.Items.Add($"{user2.Health} - осталось, {user1.Damage} Exp- {user1.Exp}");
                                 }
                                 else
                                 {
@@ -194,15 +210,21 @@ namespace _1v1
                                     user2.Health -= user1.Damage;
                                     if (user2.Health <= 0)
                                     {
-                                        exp1 += t;
+                                        user2.Health = 0;
+                                            exp1 += t;
+                                        exp1 += 3 * user4.Health * user2.Lvl;
                                         lvlUP1();
+                                        Final();
                                         MessageBox.Show("Умер");
+                                        lstHistory.Items.Add($"{user2.Health}");
                                         return;
                                     }
                                     exp1 += user1.Damage;
                                     lvlUP1();
+                                    lstHistory.Items.Add($"{user2.Health} - осталось, {user1.Damage} Exp- {user1.Exp}");
+
                                 }
-                        }
+                            }
                         }
                         else
                         {
@@ -229,28 +251,36 @@ namespace _1v1
                                 if (user2.Health <= 0)
                                 {
                                     exp1 += t;
+                                    exp1 += 3 * user4.Health * user2.Lvl;
                                     lvlUP1();
+                                    Final();
                                     MessageBox.Show("Умер");
-                                return;
+                                    lstHistory.Items.Add($"{user2.Health}");
+                                    return;
                                 }
-                                exp1 += user1.Damage;
+                                exp1 += user1.Damage * 2;
                                 lvlUP1();
-                            }
-                            else
+                                lstHistory.Items.Add($"{user2.Health} - осталось, {user1.Damage} Exp- {user1.Exp}");
+                        }
+                        else
                             {
                                 double t = user2.Health;
                                 user2.Health -= user1.Damage;                                
                                 if (user2.Health <= 0)
                                 {
                                     exp1 += t;
+                                    exp1 += 3 * user4.Health * user2.Lvl;
                                     lvlUP1();
+                                    Final();
                                     MessageBox.Show("Умер");
-                                    return;
+                                    lstHistory.Items.Add($"{user2.Health}");
+                                 return;
                                 }
                                 exp1 += user1.Damage;
                                 lvlUP1();
-                            }
+                                lstHistory.Items.Add($"{user2.Health} - осталось, {user1.Damage} Exp- {user1.Exp}");
                         }
+                    }
                     }
                 else
                 {
@@ -292,13 +322,17 @@ namespace _1v1
                                     user1.Health -= user2.Damage * 2;                                   
                                     if (user1.Health <= 0)
                                     {
-                                        lvlUP2();
+                                        user1.Health = 0;
                                         exp2 += t;
+                                        exp2 += 3 * user3.Health * user1.Lvl;
+                                        lvlUP2();
+                                        Final();
                                         MessageBox.Show("Умер");
+                                        lstHistory.Items.Add($"{user1.Health}");
                                         return;
                                     }
+                                    exp2 += user2.Damage * 2;
                                     lvlUP2();
-                                    exp2 += user2.Damage;
                                 }
                                 else
                                 {
@@ -309,11 +343,13 @@ namespace _1v1
                                     {
                                         lvlUP2();
                                         exp2 += t;
+                                        exp2 += 3 * user3.Health * user1.Lvl;
                                         MessageBox.Show("Умер");
+                                        lstHistory.Items.Add($"{user1.Health}");
                                         return;
                                     }
-                                    lvlUP2();
                                     exp2 += user2.Damage;
+                                    lvlUP2();
                                 }
                             }
                         }
@@ -324,13 +360,16 @@ namespace _1v1
                                 double t = user1.Health;
                                 user1.Health -= user2.Damage * 2;
                                 if (user1.Health <= 0)
-                                {
-                                    lvlUP2();
+                                {                                   
                                     exp2 += t;
+                                    exp2 += 3 * user3.Health * user1.Lvl;
+                                    lvlUP2();
+                                    Final();
                                     MessageBox.Show("Умер");
+                                    lstHistory.Items.Add($"{user1.Health}");
                                     return;
                                 }
-                                exp2 += user2.Damage;
+                                exp2 += user2.Damage * 2;
                                 lvlUP2();
                             }
                             else
@@ -339,9 +378,12 @@ namespace _1v1
                                 user1.Health -= user2.Damage;
                                 if (user1.Health <= 0)
                                 {
-                                    lvlUP2();
                                     exp2 += t;
+                                    exp2 += 3 * user3.Health * user1.Lvl;
+                                    lvlUP2();
+                                    Final();
                                     MessageBox.Show("Умер");
+                                    lstHistory.Items.Add($"{user1.Health}");
                                     return;
                                 }
                                 exp2 += user2.Damage;
@@ -369,14 +411,19 @@ namespace _1v1
                         {
                             double t = user1.Health;
                             user1.Health -= user2.Damage * 2;
-                            exp2 += user2.Damage;
+                            
                             if (user1.Health <= 0)
                             {
                                 exp2 += t;
+                                exp2 += 3 * user3.Health * user1.Lvl;
                                 lvlUP2();
+                                Final();
                                 MessageBox.Show("Умер");
+                                lstHistory.Items.Add($"{user1.Health}");
                                 return;
                             }
+                            exp2 += user2.Damage * 2;
+                            lvlUP2();
                         }
                         else
                         {
@@ -386,10 +433,15 @@ namespace _1v1
                             if (user1.Health <= 0)
                             {
                                 exp2 += t;
+                                exp2 += 3 * user3.Health * user1.Lvl;
                                 lvlUP2();
+                                Final();
                                 MessageBox.Show("Умер");
+                                lstHistory.Items.Add($"{user1.Health}");
                                 return;
                             }
+                            exp2 += user2.Damage;
+                            lvlUP2();
                         }
                     }
                 }
@@ -466,11 +518,28 @@ namespace _1v1
                         YouLegs2.IsChecked = false;
                         if (pD1 >= p1)
                         {
+                            YouBody2.Visibility = Visibility.Hidden;
+                            YouHead2.Visibility = Visibility.Hidden;
+                            YouLegs2.Visibility = Visibility.Hidden;
+                            YouArms2.Visibility = Visibility.Hidden;
+                            btnHeal1.Visibility = Visibility.Hidden;
+
+                            Body1.Visibility = Visibility.Visible;
+                            Head1.Visibility = Visibility.Visible;
+                            Legs1.Visibility = Visibility.Visible;
+                            Arms1.Visibility = Visibility.Visible;
+                            btnHeal2.Visibility = Visibility.Visible;
+
+                            YouBody2.IsChecked = false;
+                            YouHead2.IsChecked = false;
+                            YouArms2.IsChecked = false;
+                            YouLegs2.IsChecked = false;
                             if (pE2 >= e2)
                             {
                                 if (user1.pDamage <= user2.Evasion)
                                 {
                                     MessageBox.Show("Сработоло уклонение");
+                                    lstHistory.Items.Add("Сработоло уклонение");
                                 }
                                 else
                                 {
@@ -479,23 +548,37 @@ namespace _1v1
 
                                         double t = user2.Health;
                                         user2.Health -= user1.MagicDamage * 2;
-                                        exp1 += user1.Damage;
                                         if (user2.Health <= 0)
                                         {
+                                            user2.Health = 0;
                                             exp1 += t;
+                                            exp1 += 3 * user4.Health * user2.Lvl;
+                                            lvlUP1();
+                                            Final();
                                             MessageBox.Show("Умер");
+                                            lstHistory.Items.Add($"{user2.Health}");
                                         }
+                                        exp1 += user1.MagicDamage * 2;
+                                        lvlUP1();
+                                        lstHistory.Items.Add($"{user2.Health} - осталось, {user1.Damage} Exp- {user1.Exp}");
                                     }
                                     else
                                     {
                                         double t = user1.Health;
                                         user2.Health -= user1.MagicDamage;
-                                        exp1 += user1.Damage;
                                         if (user2.Health <= 0)
                                         {
+                                            user2.Health = 0;
                                             exp1 += t;
+                                            exp1 += 3 * user4.Health * user2.Lvl;
+                                            lvlUP1();
+                                            Final();
                                             MessageBox.Show("Умер");
+                                            lstHistory.Items.Add($"{user2.Health}");
                                         }
+                                        exp1 += user1.MagicDamage;
+                                        lvlUP1();
+                                        lstHistory.Items.Add($"{user2.Health} - осталось, {user1.Damage} Exp- {user1.Exp}");
                                     }
                                 }
                             }
@@ -505,23 +588,38 @@ namespace _1v1
                                 {
                                     double t = user1.Health;
                                     user2.Health -= user1.MagicDamage * 2;
-                                    exp1 += user1.Damage;
                                     if (user2.Health <= 0)
                                     {
+                                        user2.Health = 0;
                                         exp1 += t;
+                                        exp1 += 3 * user4.Health * user2.Lvl;
+                                        lvlUP1();
+                                        Final();
                                         MessageBox.Show("Умер");
+                                        lstHistory.Items.Add($"{user2.Health}");
                                     }
+                                    exp1 += user1.MagicDamage * 2;
+                                    lvlUP1();
+                                    lstHistory.Items.Add($"{user2.Health} - осталось, {user1.Damage} Exp- {user1.Exp}");
                                 }
                                 else
                                 {
                                     double t = user1.Health;
                                     user2.Health -= user1.MagicDamage;
-                                    exp1 += user1.Damage;
+                                    exp1 += user1.MagicDamage;
                                     if (user2.Health <= 0)
                                     {
+                                        user2.Health = 0;
                                         exp1 += t;
+                                        exp1 += 3 * user4.Health * user2.Lvl;
+                                        lvlUP1();
+                                        Final();
                                         MessageBox.Show("Умер");
+                                        lstHistory.Items.Add($"{user2.Health}");
                                     }
+                                    exp1 += user1.MagicDamage;
+                                    lvlUP1();
+                                    lstHistory.Items.Add($"{user2.Health} - осталось, {user1.Damage} Exp- {user1.Exp}");
                                 }
                             }
                         }
@@ -531,24 +629,39 @@ namespace _1v1
                             {
                                 double t = user1.Health;
                                 user2.Health -= user1.MagicDamage * 2;
-                                exp1 += user1.Damage;
                                 if (user2.Health <= 0)
                                 {
+                                    user2.Health = 0;
                                     exp1 += t;
+                                    exp1 += 3 * user4.Health * user2.Lvl;
+                                    lvlUP1();
+                                    Final();
                                     MessageBox.Show("Умер");
+                                    lstHistory.Items.Add($"{user2.Health}");
                                 }
+                                exp1 += user1.MagicDamage * 2;
+                                lvlUP1();
+                                lstHistory.Items.Add($"{user2.Health} - осталось, {user1.Damage} Exp- {user1.Exp}");
+
                             }
                             else
                             {
                                 double t = user1.Health;
                                 user2.Health -= user1.MagicDamage;
-                                exp1 += user1.Damage;
                                 user1.Mana -= user1.ManaCost;
                                 if (user2.Health <= 0)
                                 {
+                                    user2.Health = 0;
                                     exp1 += t;
+                                    exp1 += 3 * user4.Health * user2.Lvl;
+                                    lvlUP1();
+                                    Final();
                                     MessageBox.Show("Умер");
+                                    lstHistory.Items.Add($"{user2.Health}");
                                 }
+                                exp1 += user1.MagicDamage;
+                                lvlUP1();
+                                lstHistory.Items.Add($"{user2.Health} - осталось, {user1.Damage} Exp- {user1.Exp}");
                             }
                         }
                     }
@@ -590,6 +703,22 @@ namespace _1v1
 
                         if (pD2 >= p2)
                         {
+                            YouBody2.Visibility = Visibility.Visible;
+                            YouHead2.Visibility = Visibility.Visible;
+                            YouLegs2.Visibility = Visibility.Visible;
+                            YouArms2.Visibility = Visibility.Visible;
+                            btnHeal1.Visibility = Visibility.Visible;
+
+                            Body1.Visibility = Visibility.Hidden;
+                            Head1.Visibility = Visibility.Hidden;
+                            Legs1.Visibility = Visibility.Hidden;
+                            Arms1.Visibility = Visibility.Hidden;
+                            btnHeal2.Visibility = Visibility.Hidden;
+
+                            Body1.IsChecked = false;
+                            Head1.IsChecked = false;
+                            Legs1.IsChecked = false;
+                            Arms1.IsChecked = false;
                             if (pE1 >= e1)
                             {
                                 if (user2.pDamage <= user1.Evasion)
@@ -602,25 +731,34 @@ namespace _1v1
                                     {
                                         double t = user1.Health;
                                         user1.Health -= user2.MagicDamage * 2;
-                                        exp2 += user2.Damage;
                                         if (user1.Health <= 0)
                                         {
                                             exp2 += t;
+                                            exp2 += 3 * user3.Health * user1.Lvl;
+                                            lvlUP2();
                                             Final();
                                             MessageBox.Show("Умер");
+                                            return;
                                         }
+                                        exp2 += user2.MagicDamage * 2;
+                                        lvlUP2();
                                     }
                                     else
                                     {
                                         double t = user1.Health;
                                         user1.Health -= user2.MagicDamage;
-                                        exp2 += user2.Damage;
+                                        
                                         if (user1.Health <= 0)
                                         {
-                                            Final();
                                             exp2 += t;
+                                            exp2 += 3 * user3.Health * user1.Lvl;
+                                            lvlUP2();
+                                            Final();
                                             MessageBox.Show("Умер");
+                                            return;
                                         }
+                                        exp2 += user2.Damage;
+                                        lvlUP2();
                                     }
                                 }
                             }
@@ -629,24 +767,34 @@ namespace _1v1
                                 if (cR1 >= cr1)
                                 {
                                     double t = user1.Health;
-                                    user1.Health -= user2.MagicDamage * 2;
-                                    exp2 += user2.Damage;
+                                    user1.Health -= user2.MagicDamage * 2;                                  
                                     if (user1.Health <= 0)
                                     {
                                         exp2 += t;
+                                        exp2 += 3 * user3.Health * user1.Lvl;
+                                        lvlUP2();
+                                        Final();
                                         MessageBox.Show("Умер");
+                                        return;
                                     }
+                                    exp2 += user2.MagicDamage * 2;
+                                    lvlUP2();
                                 }
                                 else
                                 {
                                     double t = user1.Health;
                                     user1.Health -= user2.MagicDamage;
-                                    exp2 += user2.Damage;
                                     if (user1.Health <= 0)
                                     {
                                         exp2 += t;
+                                        exp2 += 3 * user3.Health * user1.Lvl;
+                                        lvlUP2();
+                                        Final();
                                         MessageBox.Show("Умер");
+                                        return;
                                     }
+                                    exp2 += user2.MagicDamage;
+                                    lvlUP2();
                                 }
                             }
                         }
@@ -655,26 +803,36 @@ namespace _1v1
                             if (cR1 >= cr1)
                             {
                                 double t = user1.Health;
-                                user1.Health -= user2.MagicDamage * 2;
-                                exp2 += user2.Damage;
+                                user1.Health -= user2.MagicDamage * 2;                                
                                 user2.Mana -= user2.ManaCost;
                                 if (user1.Health <= 0)
                                 {
                                     exp2 += t;
+                                    exp2 += 3 * user3.Health * user1.Lvl;
+                                    lvlUP2();
+                                    Final();
                                     MessageBox.Show("Умер");
+                                    return;
                                 }
+                                exp2 += user2.Damage * 2;
+                                lvlUP2();
                             }
                             else
                             {
                                 double t = user1.Health;
                                 user1.Health -= user2.MagicDamage;
-                                exp2 += user2.Damage;
                                 user2.Mana -= user2.ManaCost;
                                 if (user1.Health <= 0)
                                 {
                                     exp2 += t;
+                                    exp2 += 3 * user3.Health * user1.Lvl;
+                                    lvlUP2();
+                                    Final();
                                     MessageBox.Show("Умер");
+                                    return;
                                 }
+                                exp2 += user2.MagicDamage;
+                                lvlUP2();
                             }
                         }
                     }
@@ -703,44 +861,44 @@ namespace _1v1
             
             if(lvl2 > user1.Lvl)
             {
-                user1.Exp = exp2;
+                user1.Exp = exp1;
                 if(user1.Exp >= r) 
                 {
                     user1.Point += 2;
                     user1.Lvl += 1;
-                    user1.Exp = exp2;
+                    user1.Exp = exp1;
                     user1.Exp -= r;
                 }
             }
             else if (lvl3 > user1.Lvl) 
             {
-                user1.Exp = exp2;
+                user1.Exp = exp1;
                 if (user1.Exp >= e)
                 {
                     user1.Point += 3;
                     user1.Lvl += 1;
-                    user1.Exp = exp2;
+                    user1.Exp = exp1;
                     user1.Exp -= e;
                 }
             }
             else if (lvl4 > user1.Lvl)
             {
-                user1.Exp = exp2;
+                user1.Exp = exp1;
                 if (user1.Exp >= k)
                 {
                     user1.Point += 2;
                     user1.Lvl += 1;
-                    user1.Exp = exp2;
+                    user1.Exp = exp1;
                     user1.Exp -= k;
                 }
             }
             else if( lvl5 > user1.Lvl)
             {
-                user1.Exp = exp2;
+                user1.Exp = exp1;
                 if (user1.Exp >= p)
                 {
                     user1.Point += 5;
-                    user1.Exp = exp2;
+                    user1.Exp = exp1;
                 }
             }                                     
         }
@@ -877,9 +1035,23 @@ namespace _1v1
             btnHeal1.Visibility = Visibility.Hidden;
             btnAttack.Visibility = Visibility.Hidden;
             btnMagicAttack.Visibility = Visibility.Hidden;
+            user1.Mana = user3.Mana;
+            user1.Health = user1.Health;
+            user2.Health = user2.Health;
+            user2.Mana = user2.Mana;
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow main= new MainWindow();
+
+            
+            UserData.user1.Add(user1);
+            UserData.user2.Add(user2);
+            this.Close();
+        }
+
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }

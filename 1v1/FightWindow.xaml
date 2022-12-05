@@ -15,16 +15,6 @@
         <ProgressBar HorizontalAlignment="Left" Height="10" Margin="671,98,0,0" VerticalAlignment="Top" Width="100" x:Name="prbMana2" Foreground="#FF0610B0"/>
         <Label Content="" HorizontalAlignment="Left" Margin="25,29,0,0" VerticalAlignment="Top" Width="100" x:Name="lblName1"/>
         <Label Content="" HorizontalAlignment="Left" Margin="671,29,0,0" VerticalAlignment="Top" Width="100" x:Name="lblName2"/>
-        <TextBox HorizontalAlignment="Left" Margin="331,79,0,0" TextWrapping="Wrap" Text="TextBox"  VerticalAlignment="Top" Width="118" x:Name="Health1" Height="22" RenderTransformOrigin="0.527,0.411" >
-            <TextBox.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleX="-5.194"/>
-                    <RotateTransform/>
-                    <TranslateTransform X="-0.231"/>
-                </TransformGroup>
-            </TextBox.RenderTransform>
-        </TextBox>
         <RadioButton Content="H" HorizontalAlignment="Left" Margin="528,214,0,0" VerticalAlignment="Top" x:Name="YouHead2"/>
         <RadioButton Content="L" HorizontalAlignment="Left" Margin="528,280,0,0" VerticalAlignment="Top" x:Name="YouLegs2"/>
         <RadioButton Content="T" HorizontalAlignment="Left" Margin="529,234,0,0" VerticalAlignment="Top" x:Name="YouBody2"/>
@@ -45,9 +35,6 @@
             <TextBlock><Run Text="Arms"/></TextBlock>
             <TextBlock><Run Text="Legs"/></TextBlock>
         </ComboBox>
-        <TextBox HorizontalAlignment="Left" Margin="329,104,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" x:Name="txtMana1" />
-        <TextBox HorizontalAlignment="Left" Margin="493,104,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" x:Name="txtHealth2"/>
-        <TextBox HorizontalAlignment="Left" Margin="494,127,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" x:Name="txtMana2" />
         <Button Content="MagicAttack" HorizontalAlignment="Left" Height="26" Margin="408,360,0,0" VerticalAlignment="Top" Width="80" RenderTransformOrigin="0.5,0.5" x:Name="btnMagicAttack" Click="btnMagicAttack_Click"/>
         <Button Content="Heal" HorizontalAlignment="Left" Height="26" Margin="528,174,0,0" VerticalAlignment="Top" Width="40" RenderTransformOrigin="0.5,0.5" x:Name="btnHeal1" Click="btnHeal1_Click"/>
         <Button Content="Heal" HorizontalAlignment="Left" Height="26" Margin="304,180,0,0" VerticalAlignment="Top" Width="40" RenderTransformOrigin="0.5,0.5" x:Name="btnHeal2" Click="btnHeal2_Click"/>
@@ -56,6 +43,7 @@
         <Label Content="Mana:" HorizontalAlignment="Left" Margin="25,72,0,0" VerticalAlignment="Top" Width="50"/>
         <Label Content="Mana:" HorizontalAlignment="Left" Margin="721,72,0,0" VerticalAlignment="Top" Width="50"/>
         <Button Content="Exit" HorizontalAlignment="Left" Margin="408,234,0,0" VerticalAlignment="Top" Width="80" Height="32" x:Name="Exit" Click="Exit_Click"/>
-        
+        <ListBox Margin="300,24,260,288" SelectionChanged="ListBox_SelectionChanged" Name="lstHistory"/>
+
     </Grid>
 </Window>

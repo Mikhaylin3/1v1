@@ -20,15 +20,93 @@ namespace _1v1
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static User user1 = new User();
+        public static User user2 = new User();
         public MainWindow()
         {
             InitializeComponent();
+            
+            
+                foreach (var b in UserData.user2)
+                {
+                    user2.Names = b.Names;
+                    user2.Intellengence = b.Intellengence;
+                    user2.Dexterity = b.Dexterity;
+                    user2.Strenght = b.Strenght;
+                    user2.Constitution = b.Constitution;
+                    user2.Lvl = b.Lvl;
+                    user2.MagicDamage = b.MagicDamage;
+                    user2.Point = b.Point;
+                    user2.Luck = b.Luck;
+                    user2.Mana = b.Mana;
+                    user2.ManaCost = b.ManaCost;
+                    user2.Health = b.Health;
+                    user2.Evasion = b.Evasion;
+                    user2.CrtChance = b.CrtChance;
+                    user2.Damage = b.Damage;
+                    user2.pDamage = b.pDamage;
+                    user2.Exp = b.Exp;
+                }
+                foreach (var t in UserData.user1)
+                {
+                    user1.Names = t.Names;
+                    user1.Intellengence = t.Intellengence;
+                    user1.Dexterity = t.Dexterity;
+                    user1.Strenght = t.Strenght;
+                    user1.Constitution = t.Constitution;
+                    user1.Point = t.Point;
+                    user1.Lvl = t.Lvl;
+                    user1.MagicDamage = t.MagicDamage;
+                    user1.Luck = t.Luck;
+                    user1.Mana = t.Mana;
+                    user1.ManaCost = t.ManaCost;
+                    user1.Health = t.Health;
+                    user1.Evasion = t.Evasion;
+                    user1.CrtChance = t.CrtChance;
+                    user1.Damage = t.Damage;
+                    user1.pDamage = t.pDamage;
+                    user1.Exp = t.Exp;
+
+                }
+            ////user1.Names = txtName12.Text;
+            ////user1.Constitution = Convert.ToInt32(txtConstitution1.Text);
+            ////user1.Strenght = Convert.ToInt32(txtStrenght1.Text);
+            ////user1.Dexterity = Convert.ToInt32(txtDexterity1.Text);
+            ////user1.Intellengence = Convert.ToInt32(txtIntellengence1.Text);
+            ////user1.Luck = Convert.ToInt32(txtLuck1.Text);
+            ////user1.Point = Convert.ToInt32(txtPoint1.Text);
+            ////user1.Lvl = Convert.ToInt32(txtLvl1.Text);
+            ///
+            if (user1.Names !=null)
+            {
+                txtConstitution1.Text = user1.Constitution.ToString();
+                txtDexterity1.Text = user1.Dexterity.ToString();
+                txtIntellengence1.Text = user1.Intellengence.ToString();
+                txtLuck1.Text = user1.Luck.ToString();
+                txtPoint1.Text = user1.Point.ToString();
+                txtStrenght1.Text = user1.Strenght.ToString();
+                txtLvl1.Text = user1.Lvl.ToString();
+                txtName12.Text = user1.Names;
+                user2.Names = txtName2.Text;
+                txtConstitution2.Text = user2.Constitution.ToString();
+                txtDexterity2.Text = user2.Dexterity.ToString();
+                txtIntellengence2.Text = user2.Intellengence.ToString();
+                txtLuck2.Text = user2.Luck.ToString();
+                txtPoint2.Text = user2.Point.ToString();
+                txtStrenght2.Text = user2.Strenght.ToString();
+                txtLvl2.Text = user2.Lvl.ToString();
+                txtName2.Text = user2.Names;
+                user2.Names = txtName2.Text;
+            }
         }
-        public static User user1 = new User();
-        public static User user2 = new User();
+        
+
+        
 
         private void Save_click(object sender, RoutedEventArgs e)
         {
+            UserData.user2.Clear();
+            UserData.user1.Clear();
             string t = txtName12.Text;
             CalcParam();
             if (txtName12.Text != null)
@@ -75,6 +153,7 @@ namespace _1v1
                 UserData.user2.Add(user2);
                 FightWindow fightWindow = new FightWindow();               
                 fightWindow.Show();
+
             }
         }
         void CalcParam()
@@ -305,6 +384,6 @@ namespace _1v1
             }
         }
 
-
+ 
     }
 }

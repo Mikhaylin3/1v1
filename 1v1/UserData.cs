@@ -10,5 +10,6 @@ namespace _1v1
     {
         public static List<User> user1 = new List<User>();
         public static List<User> user2 = new List<User>();
+
     }
 }

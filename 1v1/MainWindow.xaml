@@ -23,7 +23,6 @@
         <Label Content="Intellengence:" HorizontalAlignment="Left" Margin="66,151,0,0" VerticalAlignment="Top" Width="86" Height="26"/>
         <TextBox HorizontalAlignment="Left" Margin="66,228,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="86" x:Name="txtConstitution1" IsReadOnly="True"/>
         <Label Content="Constitution:" HorizontalAlignment="Left" Margin="66,203,0,0" VerticalAlignment="Top" Width="78" Height="25"/>
-        <TextBox HorizontalAlignment="Left" Margin="60,17,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"   Width="120"  x:Name="txtName1" />
 
 
         <Button Content="+" HorizontalAlignment="Left" Margin="154,79,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.808,-1.768" Click="AddStrenght2_Click" Width="45" Height="28" x:Name="AddStrenght2" Grid.Column="1"/>
@@ -64,7 +63,7 @@
         <TextBox HorizontalAlignment="Left" Margin="63,290,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="86" x:Name="txtLuck2" IsReadOnly="True" Grid.Column="1"  />
         <Button Content="+" HorizontalAlignment="Left" Margin="154,285,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.808,-1.768" Click="AddLuck2_Click" Width="45" Height="28" x:Name="AddLuck2" Grid.Column="1"/>
         <Label Content="Luck:" HorizontalAlignment="Left" Margin="63,265,0,0" VerticalAlignment="Top" x:Name="Luck2" Grid.Column="1"/>
-        <TextBox HorizontalAlignment="Left" Margin="200,17,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" x:Name="txtName12"/>
+        <TextBox HorizontalAlignment="Left" Margin="45,17,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Width="120" x:Name="txtName12" />
 
 
     </Grid>
