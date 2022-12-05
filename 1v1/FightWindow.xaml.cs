@@ -617,6 +617,7 @@ namespace _1v1
                                         exp2 += user2.Damage;
                                         if (user1.Health <= 0)
                                         {
+                                            Final();
                                             exp2 += t;
                                             MessageBox.Show("Умер");
                                         }
